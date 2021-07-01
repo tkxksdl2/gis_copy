@@ -5,5 +5,5 @@ from django.shortcuts import render
 
 
 
-def hello_world(reqest):
-    return HttpResponse('Hello World!')
+def hello_world(request):
+    return render(request, 'base.html')
