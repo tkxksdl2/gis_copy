@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="'UTF-8">
-    <body>
-    <p>hello_world</p>
+{% include 'head.html' %}
+
+<body>
+{% include 'header.html' %}
+
+{% block content %}
+{% endblock %}
+{% include 'footer.html' %}
+
+
+
     </body>
-</head>
 </html>
