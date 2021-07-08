@@ -1,6 +1,24 @@
 {% extends 'base.html' %}
 {% block content %}
-<div style="height: 20rem; background-color: aquamarine; margin: 2rem; border-radius: 1rem;">
+<div style="height: 20rem; background-color: aquamarine; margin: 2rem; border-radius: 1rem; font-size:2rem;">
+
+<style>
+    .testing{
+        background-color: yellow;
+        margin: 1rem;
+        height:48px;
+        width: 48px;
+        border-radius: .5rem;
+        display: inline-block;
+
+    }
+</style>
+
+
+        <div class="testing" style="height: 48px; width:48px; ">pixel </div>
+        <div class="testing" style="height: 3rem; width:3rem; ">rem </div>
+        <div class="testing" style="height: 3em; width:3em; ">em </div>
+        <div class="testing" style="height: 30%; width:30%; ">% </div>
 
 </div>
 {% endblock %}
