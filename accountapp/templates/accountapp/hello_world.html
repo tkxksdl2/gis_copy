@@ -7,11 +7,12 @@
 
     <form action="/accounts/hello_world/" method = 'post'>
         {% csrf_token %}
+        <input type="text" name="input_text">
         <input type="submit" class="btn btn-dark px-3 rounded-pill" >
 
     </form>
 
-    <h3>{{ text }}</h3>
+    <h3>{{ new_hello_world.text }}</h3>
 
 </div>
 
