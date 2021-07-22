@@ -9,9 +9,11 @@ from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 
+from accountapp.decorators import account_ownership_required
 from accountapp.forms import AccountCreationForm
 from accountapp.models import HelloWorld
 from django.urls import reverse
+
 
 @login_required
 def hello_world(request):
@@ -23,27 +25,31 @@ def hello_world(request):
         new_hello_world.text = temp
         new_hello_world.save()
 
-
-        return HttpResponseRedirect( reverse('accountapp:hello_world'))
+        return HttpResponseRedirect(reverse('accountapp:hello_world'))
     else:
         hello_world_list = HelloWorld.objects.all()
         return render(request, 'accountapp/hello_world.html',
-                      context={'hello_world_list':hello_world_list})
+                      context={'hello_world_list': hello_world_list})
 
 
 class AccountCreateView(CreateView):
     model = User
     form_class = UserCreationForm
     success_url = reverse_lazy('accountapp:hello_world')
-    template_name ='accountapp/create.html'
+    template_name = 'accountapp/create.html'
+
 
 class AccountDetailView(DetailView):
     model = User
     context_object_name = 'target_user'
     template_name = 'accountapp/detail.html'
 
-@method_decorator(login_required, 'get')
-@method_decorator(login_required, 'post')
+
+has_ownership = [login_required, account_ownership_required]
+
+
+@method_decorator(has_ownership, 'get')
+@method_decorator(has_ownership, 'get')
 class AccountUpdateView(UpdateView):
     model = User
     form_class = AccountCreationForm
@@ -52,8 +58,8 @@ class AccountUpdateView(UpdateView):
     template_name = 'accountapp/update.html'
 
 
-@method_decorator(login_required, 'get')
-@method_decorator(login_required, 'post')
+@method_decorator(has_ownership, 'get')
+@method_decorator(has_ownership, 'get')
 class AccountDeleteView(DeleteView):
     model = User
     context_object_name = 'target_user'
