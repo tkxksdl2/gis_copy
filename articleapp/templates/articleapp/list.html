@@ -26,7 +26,7 @@
     <div class="container my-4">
         {% for article in article_list %}
             <div>
-                <a href="{% url 'articleapp:delete' pk=article.pk %}">
+                <a href="{% url 'articleapp:detail' pk=article.pk %}">
                     <img src="{{ article.image.url }}">
                 </a>
             <span class="NNS_B m-2">{{ article.title }}</span>
@@ -36,5 +36,16 @@
     </div>
 
     <script src="{% static 'js/magicgrid.js' %}"></script>
+
+    <div class="text-center">
+        <a href="{% url 'articleapp:create' %}"
+        class="btn btn-dark rounded-pill material-icons">
+            brush
+        </a>
+        <a href="{% url 'articleapp:create' %}"
+        class="btn btn-outline-dark rounded-pill px-5">
+            Create Article
+        </a>
+    </div>
 
 {% endblock %}
