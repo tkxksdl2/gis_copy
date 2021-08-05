@@ -39,3 +39,14 @@
 .round-button:hover{
     color: red;
 }
+
+.article_image {
+    width: 30%;
+    border-radius: 3rem;
+    box-shadow: 0.5rem 0.5rem 1rem darkolivegreen;
+}
+
+.article_content{
+    text-align: left;
+    font-size: 1.1rem;
+}

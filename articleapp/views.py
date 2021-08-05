@@ -19,7 +19,7 @@ class ArticleCreateView(CreateView):
     template_name = 'articleapp/create.html'
 
     def form_valid(self, form):
-        form.instance.writer = self.request.user
+        form.instance.writter = self.request.user
         return super().form_valid(form)
 
     def get_success_url(self):

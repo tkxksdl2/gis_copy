@@ -1,15 +1,23 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="container">
+    <div class="container text-center">
         <div>
-            <h1>{{ target_article.title }}</h1>
-            <h3>{{ target_article.writer.profile.nickname }}</h3>
+            <h1 class="NNS_B">{{ target_article.title }}</h1>
+            <h3>{{ target_article.writter.profile.nickname }}</h3>
             <p>{{ target_article.created_at }}</p>
         </div>
+
+        <hr>
+
         <div>
-            <img src="{{ target_article.image.url }}">
+            <img src="{{ target_article.image.url }}"
+            class="article_image">
+            <div class="article_content">
             {{ target_article.content}}
+            </div>
+
+            {% if target_article.writter == user %}
             <div>
                 <a href="{% url 'articleapp:update' pk=target_article.pk %}"
                 class="btn btn-success rounded-pill px5">
@@ -20,6 +28,9 @@
                     Delete
                 </a>
             </div>
+            {% endif %}
+
+            <hr>
         </div>
 
 
