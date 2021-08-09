@@ -26,10 +26,16 @@
     <div class="container my-4">
         {% for article in article_list %}
             <div>
+
                 <a href="{% url 'articleapp:detail' pk=article.pk %}">
                     <img src="{{ article.image.url }}">
                 </a>
-            <span class="NNS_B m-2">{{ article.title }}</span>
+
+            {% if article.writter == user %}
+                <span class="NNS_B m-2" style="color:indianred;">{{ article.title }}</span>
+            {% else %}
+                <span class="NNS_B m-2">{{ article.title }}</span>
+            {% endif %}
             </div>
 
         {% endfor %}
