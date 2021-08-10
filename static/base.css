@@ -50,3 +50,11 @@
     text-align: left;
     font-size: 1.1rem;
 }
+
+.comment_box{
+    text-align: left;
+    border: solid rgba(149, 182, 150, 0.84);
+    border-radius:1rem;
+    padding: 1rem;
+    margin: 1rem;
+}
