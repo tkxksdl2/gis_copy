@@ -59,3 +59,12 @@
     padding: 1rem;
     margin: 1rem;
 }
+
+.comment_image{
+    height: 2rem;
+    width: 2rem;
+    border-radius: 20rem;
+    object-fit: cover;
+    margin: 0.5rem;
+    border: solid slategrey
+}
