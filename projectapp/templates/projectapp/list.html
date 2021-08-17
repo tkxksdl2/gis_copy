@@ -9,8 +9,6 @@
             margin:0 auto;
         }
         .container div {
-          width: 45%;
-            max-width: 250px;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -21,7 +19,9 @@
         }
 
         .container img {
-            width: 100%;
+            width: 7rem;
+            height: 7rem;
+            object-fit: cover;
             border-radius: 1rem;
         }
 
@@ -37,9 +37,9 @@
                 </a>
 
             {% if project.writter == user %}
-                <span class="NNS_B m-2" style="color:indianred;">{{ project.name }}</span>
+                <span class="NNS_B m-2" style="color:indianred;">{{ project.name | truncatechars:7 }}</span>
             {% else %}
-                <span class="NNS_B m-2">{{ project.name }}</span>
+                <span class="NNS_B m-2">{{ project.name | truncatechars:7 }}</span>
             {% endif %}
             </div>
 
