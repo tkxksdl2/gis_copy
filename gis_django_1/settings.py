@@ -14,6 +14,7 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 from django.urls import reverse_lazy
+from django.contrib.messages import constants as messages
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -41,6 +42,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+MESSAGE_TAGS = {
+    messages.INFO: '',
+    messages.SUCCESS:'success',
+    messages.ERROR: 'danger',
+    50: 'critical',
+}
 
 # Application definition
 
