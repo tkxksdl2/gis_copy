@@ -5,6 +5,15 @@
         <div>
             <h1 class="NNS_B">{{ target_article.title }}</h1>
             <h3>{{ target_article.writter.profile.nickname }}</h3>
+            <div>
+                <a href="{% url 'likeapp:like_article'  article_pk=target_article.pk %}"
+                    class="material-icons">
+                    favorite
+                </a>
+                <span>
+                    {{ target_article.like }}
+                </span>
+            </div>
             <p>{{ target_article.created_at }}</p>
         </div>
 
