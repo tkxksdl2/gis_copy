@@ -84,3 +84,6 @@ __pycache__/
 media/
 
 staticfiles/
+
+Whale_gcp
+Whale_gcp.pub
