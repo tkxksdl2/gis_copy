@@ -14,12 +14,24 @@ services:
       - whalebro_media:/data/media/
 
   django:
-    image: whalebro:gcp_3
+    image: whalebro:gcp_4
     networks:
       - whalebro_gcp
     volumes:
       - whalebro_static:/home/gis_copy/staticfiles/
       - whalebro_media:/home/gis_copy/media/
+
+  mariadb:
+    image: mariadb:10.5
+    networks:
+      - whalebro_gcp
+    volumes:
+      - whalebro_mariadb:/var/lib/mysql
+    environment:
+      MARIADB_ROOT_PASSWORD: password1234
+      MARIADB_DATABASE: django
+      MARIADB_USER: django
+      MARIADB_PASSWORD: password1234
 
 networks:
   whalebro_gcp:
@@ -27,3 +39,4 @@ networks:
 volumes:
   whalebro_static:
   whalebro_media:
+  whalebro_mariadb:
