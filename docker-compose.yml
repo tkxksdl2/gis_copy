@@ -1,0 +1,29 @@
+version: "3.7"
+
+services:
+
+  nginx:
+    image: nginx:1.19.5
+    ports:
+      - 80:80
+    networks:
+      - whalebro_gcp
+    volumes:
+      - /home/tkxksdl2/nginx.conf:/etc/nginx/nginx.conf
+      - whalebro_static:/data/static/
+      - whalebro_media:/data/media/
+
+  django:
+    image: whalebro:gcp_3
+    networks:
+      - whalebro_gcp
+    volumes:
+      - whalebro_static:/home/gis_copy/staticfiles/
+      - whalebro_media:/home/gis_copy/media/
+
+networks:
+  whalebro_gcp:
+
+volumes:
+  whalebro_static:
+  whalebro_media:
